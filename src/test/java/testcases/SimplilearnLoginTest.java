@@ -11,10 +11,11 @@ import pages.LoginPage;
 public class SimplilearnLoginTest extends BaseClass{
 
 	@Test
-	public void Test1() {
+	public void Test1() throws InterruptedException {
 		
 		
 		LoginPage lp = new LoginPage(driver);
+		Thread.sleep(5000);
 		lp.Login("abc@xyz.com", "ABc@1234");
 		
 		//Step6: Validate the error message on screen
@@ -37,18 +38,20 @@ public class SimplilearnLoginTest extends BaseClass{
 	
 	@Test
 	@Parameters({"uname", "pwd"})
-	public void Test2() {
+	public void Test2() throws InterruptedException {
 		
 		LoginPage lp = new LoginPage(driver);
-		lp.Login("abc@xyz.com", "ABc@1234");
+		Thread.sleep(5000);
+		lp.Login("uname", "pwd");
 	}
 	
 	@Test
-	public void Test3() {
+	public void Test3() throws InterruptedException {
 		String UserName = sheet.getRow(1).getCell(0).getStringCellValue();
 		String Password = sheet.getRow(1).getCell(1).getStringCellValue();
 		
 		LoginPage lp = new LoginPage(driver);
+		Thread.sleep(5000);
 		lp.Login(UserName, Password);
 	}
 
